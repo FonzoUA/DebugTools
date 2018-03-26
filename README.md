@@ -128,5 +128,94 @@ S_ [Karma] [Stats]	C/D ratio: 1.000  with C-D=0
 ```
 
 
+## Cleanup functions (KCleanup)
+Static functions that cleanup STL containers and the objects within them (as opposed to pointers only)
+
+### Why?
+Cause memory leaks 
+
+#### Code Sample
+```cpp
+#include "KCleanup.h"
+#include "KPrint.h"
+#include <map>
+#include <string>
+
+class Node
+{
+public:
+	Node() {};
+	Node(const int& sp, const int& b) : spicy(sp), boi(b) {}
+	~Node() { KPrint::print("				Node Destructor called\n"); }
+	int spicy;
+	int boi;
+};
+
+int main()
+{
+	std::string test1 = "T1";
+	std::string test2 = "T2";
+	std::string test3 = "T3";
+	std::string test4 = "T4";
+	std::string test5 = "T5";
+
+	std::map<std::string, Node*>* map = new std::map<std::string, Node*>;
+	
+	(*map)[test1] = new Node(1, 11);
+	(*map)[test2] = new Node(2, 21);
+	(*map)[test3] = new Node(3, 31);
+	(*map)[test4] = new Node(4, 41);
+	(*map)[test5] = new Node(5, 51);
+
+
+	KPrint::print("==========================\n");
+
+	for (auto it = map->begin(); it != map->end(); it++)
+	{
+		KPrint::print("%s's value1: %i   value2: %i  \n", it->first.c_str(), it->second->spicy, it->second->boi);
+	}
+
+	KPrint::print("Map size: %i \n", map->size());
+
+	/*
+	KPrint::print("==========================\n");
+	KPrint::print("Manual deletion \n");
+	for (auto it = map->begin(); it != map->end(); it++)
+		delete it->second;
+	map->clear();
+	*/
+
+	KPrint::print("==========================\n");
+	KPrint::print("KCleanup deletion \n");
+	KCleanup::CleanUpMap(*map);
+	KPrint::print("==========================\n");
+
+}
+
+/*
+Sample Output: 
+
+==========================
+T1's value1: 1   value2: 11  
+T2's value1: 2   value2: 21  
+T3's value1: 3   value2: 31  
+T4's value1: 4   value2: 41  
+T5's value1: 5   value2: 51  
+Map size: 5 
+==========================
+KCleanup deletion 
+				Node Destructor called
+				Node Destructor called
+				Node Destructor called
+				Node Destructor called
+				Node Destructor called
+PRE clear Map size: 0 
+POST clear Map size: 0 
+==========================
+
+*/
+```
+
+
 
 
