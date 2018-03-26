@@ -10,7 +10,7 @@ Tool for calculating elapsed time in C++ program.
 ### Why?
 Using `clock()` to calculate the time elapsed was getting annoying + convenience
 
-## Code Sample
+#### Code Sample
 ```cpp
 #include "KTimer.h"
 #include "KPrint.h"
@@ -58,7 +58,7 @@ A simple tool for printing stuff to the VS output window.
 ### Why?
 Print traces save lives.
 
-## Code Sample
+#### Code Sample
 ```cpp
 #include "KPrint.h"
 
@@ -79,7 +79,7 @@ Hello World!
 ```
 
 
-## C/D Counter Thing (K_Debug)
+## C/D Counter Thing (KDebug)
 A singleton class that suppose to count number of constructors and destructor called thus helping with detecting memory leaks.
 Requires user to be diligent and put the functions in the proper places(see sample) 
 Also since its a singleton it needs to be among the first things initialized and last things destroyed
@@ -87,7 +87,7 @@ Also since its a singleton it needs to be among the first things initialized and
 ### Why?
 So that one can spot as much of those juicy leaks as possible.
 
-## Code Sample
+#### Code Sample
 ```cpp
 // Used within the context of game engine
 
