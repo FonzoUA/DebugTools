@@ -4,6 +4,7 @@ A set of simple tools for debugging C++ program;
 #### Tested on
 * Windows 10
 
+#### What is available so far:
 * Timer
 * Printer
 * C/D Counter
