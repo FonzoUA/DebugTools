@@ -41,11 +41,11 @@ int main()
 Sample output:
 
 ===== TIMER START =====
-[FTIMER] | NONAME timer's TestStamp timestamp: 2000.5275
+[KTIMER] | NONAME timer's TestStamp timestamp: 2000.5275
 ==== TIMER END =====
-[FTIMER] | NONAME timer's time is: 3001.7170
-[FTIMER] | NONAME timer's time is: 0.0003
-[FTIMER] | NONAME timer's time is: 2000.3136
+[KTIMER] | NONAME timer's time is: 3001.7170
+[KTIMER] | NONAME timer's time is: 0.0003
+[KTIMER] | NONAME timer's time is: 2000.3136
 
 */
 ```
