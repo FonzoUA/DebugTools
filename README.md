@@ -4,6 +4,11 @@ A set of simple tools for debugging C++ program;
 #### Tested on
 * Windows 10
 
+* Timer
+* Printer
+* C/D Counter
+* Container Cleanup
+
 ## Timer (KTimer)
 Tool for calculating elapsed time in C++ program.
 
@@ -128,7 +133,7 @@ S_ [Karma] [Stats]	C/D ratio: 1.000  with C-D=0
 ```
 
 
-## Cleanup functions (KCleanup)
+## Container Cleanup functions (KCleanup)
 Static functions that cleanup STL containers and the objects within them (as opposed to pointers only)
 
 ### Why?
