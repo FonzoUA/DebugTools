@@ -9,6 +9,7 @@ A set of simple tools for debugging C++ program;
 * Printer
 * C/D Counter
 * Container Cleanup
+* Random Number Generator
 
 ## Timer (KTimer)
 Tool for calculating elapsed time in C++ program.
@@ -217,6 +218,62 @@ KCleanup deletion
 				Node Destructor called
 PRE clear Map size: 0 
 POST clear Map size: 0 
+==========================
+
+*/
+```
+
+## Random number generator (KRandom)
+Static functions that return a random int or float. Can have specific start and end ranges
+
+### Why?
+Sometimes you need a number to help you figure out your mistakes
+
+#### Code Sample
+```cpp
+#include "KRandom.h"
+#include "KPrint.h"
+int main()
+{
+	KPrint::print("==========================\n");
+	for (int i = 0; i < 5; i++)
+		KPrint::print("Random int: %i \n", KRandom::GetRandomInt());
+
+	for (int i = 0; i < 5; i++)
+		KPrint::print("Random int b/w 5 and 20: %i \n", KRandom::GetRandomInt(5, 20));
+
+	for (int i = 0; i < 5; i++)
+		KPrint::print("Random float: %f \n", KRandom::GetRandomFloat());
+
+	for (int i = 0; i < 5; i++)
+		KPrint::print("Random float b/w 14.5f and 24.2f: %f \n", KRandom::GetRandomFloat(14.5f, 24.2f));
+	KPrint::print("==========================\n");
+
+}
+
+/*
+Sample Output: 
+==========================
+Random int: 42 
+Random int: 68 
+Random int: 35 
+Random int: 1 
+Random int: 70 
+Random int b/w 5 and 20: 17 
+Random int b/w 5 and 20: 11 
+Random int b/w 5 and 20: 19 
+Random int b/w 5 and 20: 7 
+Random int b/w 5 and 20: 5 
+Random float: 18.410810 
+Random float: 86.894348 
+Random float: 72.050140 
+Random float: 52.353497 
+Random float: 31.399487 
+Random float b/w 14.5f and 24.2f: 14.645350 
+Random float b/w 14.5f and 24.2f: 15.386608 
+Random float b/w 14.5f and 24.2f: 18.035185 
+Random float b/w 14.5f and 24.2f: 15.928935 
+Random float b/w 14.5f and 24.2f: 16.109217 
 ==========================
 
 */
