@@ -8,17 +8,10 @@
 class KPrint
 {
 private:
-	//static char DebugBuff[256];
+	static char DebugBuff[256];
 
 public:
-	static void print(const char* A, ...)
-	{
-		char DebugBuff[256];
-		va_list args;
-		va_start(args, A);
-		vsprintf_s(DebugBuff, A, args);
-		OutputDebugString(DebugBuff);
-	};
+	static void print(const char* A, ...);
 };
 
 #endif
