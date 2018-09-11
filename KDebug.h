@@ -4,7 +4,6 @@
 #include "KPrint.h"
 
 // Debug macro
-#define _KDebug 1
 #define _KDebugWithMessages 1
 #define _DebugPrintStats 1
 
@@ -30,11 +29,13 @@ private:
 	/* ======================== */
 
 public:
-	static void PrintConstructor(const std::string& className, const std::string& category = "Misk");
-	static void PrintDestructor(const std::string& className, const std::string& category = "Misk");
+	static void LogConstructor(const std::string& className = "NoName", const std::string& category = "Misk");
+	static void LogConstructor(const std::string& className = "NoName", const std::string& category = "Misk");
 	static void PrintStats();
 	static void Terminate();
+
 private:
+
 	int _Constructors;
 	int _Destructors;
 };
