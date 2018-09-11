@@ -102,17 +102,13 @@ So that one can spot as much of those juicy leaks as possible.
 
 ImageAssetManager::ImageAssetManager()
 {
-#if _KDebug
-	K_Debug::PrintConstructor("ImageAssetManager", "Singleton");
-#endif
+	KDebug::LogConstructor("ImageAssetManager", "Singleton");
 	//...
 }
 
 ImageAssetManager::~ImageAssetManager()
 {
-#if _KDebug
-	K_Debug::PrintDestructor("ImageAssetManager", "Singleton");
-#endif
+	KDebug::LogDestructor("ImageAssetManager", "Singleton");
 	//...
 }
 
